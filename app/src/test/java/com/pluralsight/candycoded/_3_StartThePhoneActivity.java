@@ -147,11 +147,14 @@ public class _3_StartThePhoneActivity {
         try {
             inputStream = this.getClass().getClassLoader().getResourceAsStream(layoutFileName);
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            factory.setNamespaceAware(false);
-            XmlPullParser parser = factory.newPullParser();
-            parser.setInput(inputStream, null);
-            parser.nextTag();
-            viewContainers = XMLTestHelpers.readFeed(parser);
+            if (factory != null){
+                factory.setNamespaceAware(false);
+                XmlPullParser parser = factory.newPullParser();
+                parser.setInput(inputStream, null);
+                parser.nextTag();
+                viewContainers = XMLTestHelpers.readFeed(parser);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
