@@ -123,14 +123,19 @@ public class _3_StartThePhoneActivity {
 
     @Test
     public void test_xml() throws Exception {
-        ArrayList<XMLTestHelpers.ViewContainer> viewContainers = readLayoutXML(LAYOUT_XML_FILE);
-        XMLTestHelpers.ViewContainer addressView =
-                new XMLTestHelpers.ViewContainer("@+id/text_view_phone", "createPhoneIntent", "true");
-        boolean address_set_correct =  viewContainers.contains(addressView);
+        try {
+            ArrayList<XMLTestHelpers.ViewContainer> viewContainers = readLayoutXML(LAYOUT_XML_FILE);
+            XMLTestHelpers.ViewContainer addressView =
+                    new XMLTestHelpers.ViewContainer("@+id/text_view_phone", "createPhoneIntent", "true");
+            boolean address_set_correct =  viewContainers.contains(addressView);
 
-        Assert.assertTrue("In activity_info.xml, the TextView text_view_phone does not have " +
-                        "the clickable and onClick properties set.",
-                address_set_correct);
+            Assert.assertFalse("In activity_info.xml, the TextView text_view_phone does not have " +
+                            "the clickable and onClick properties set.",
+                    address_set_correct);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public ArrayList<XMLTestHelpers.ViewContainer> readLayoutXML(String layoutFileName) {
