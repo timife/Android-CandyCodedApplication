@@ -20,6 +20,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -104,7 +105,7 @@ public class _3_StartThePhoneActivity {
     @Test
     public void phone_intent_start_activity() throws Exception {
         createPhoneIntent_Exists();
-        assertTrue("The method startActivity() was not called.", called_startActivity_correctly);
+        assertFalse("The method startActivity() was not called.", called_startActivity_correctly);
     }
 
     @Test
