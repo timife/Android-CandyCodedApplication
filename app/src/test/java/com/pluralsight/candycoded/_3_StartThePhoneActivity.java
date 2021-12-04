@@ -150,7 +150,7 @@ public class _3_StartThePhoneActivity {
             if (factory != null){
                 factory.setNamespaceAware(false);
                 XmlPullParser parser = factory.newPullParser();
-                parser.setInput(inputStream, null);
+                parser.setInput(inputStream, "null");
                 parser.nextTag();
                 viewContainers = XMLTestHelpers.readFeed(parser);
             }
